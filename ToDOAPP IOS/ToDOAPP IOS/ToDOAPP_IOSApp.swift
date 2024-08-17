@@ -15,5 +15,6 @@ struct ToDOAPP_IOSApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Task.self)
     }
 }

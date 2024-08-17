@@ -13,6 +13,7 @@
 		1262F09A2C6F195700FE2EBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1262F0992C6F195700FE2EBD /* Preview Assets.xcassets */; };
 		1262F0A22C6F19BC00FE2EBD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1262F0A12C6F19BC00FE2EBD /* Task.swift */; };
 		1262F0A42C6F238E00FE2EBD /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1262F0A32C6F238E00FE2EBD /* NewTaskView.swift */; };
+		1262F0A62C7073B600FE2EBD /* Prueba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1262F0A52C7073B600FE2EBD /* Prueba.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		1262F0992C6F195700FE2EBD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1262F0A12C6F19BC00FE2EBD /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		1262F0A32C6F238E00FE2EBD /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
+		1262F0A52C7073B600FE2EBD /* Prueba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prueba.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				1262F0902C6F195500FE2EBD /* ToDOAPP_IOSApp.swift */,
 				1262F0922C6F195500FE2EBD /* ContentView.swift */,
+				1262F0A52C7073B600FE2EBD /* Prueba.swift */,
 				1262F0A32C6F238E00FE2EBD /* NewTaskView.swift */,
 				1262F0A02C6F19A900FE2EBD /* model */,
 				1262F0962C6F195700FE2EBD /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1262F0A62C7073B600FE2EBD /* Prueba.swift in Sources */,
 				1262F0A42C6F238E00FE2EBD /* NewTaskView.swift in Sources */,
 				1262F0A22C6F19BC00FE2EBD /* Task.swift in Sources */,
 				1262F0932C6F195500FE2EBD /* ContentView.swift in Sources */,

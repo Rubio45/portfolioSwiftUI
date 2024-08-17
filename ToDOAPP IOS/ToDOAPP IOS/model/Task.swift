@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 enum Priority: Int, CaseIterable {
     case low = 1
@@ -37,16 +38,25 @@ enum Priority: Int, CaseIterable {
     }
 }
 // modelo de los datos, cuando se marca Observable marca todas las variables como published. 
-@Observable class Task: Identifiable {
+@Model class Task: Identifiable {
     var id: UUID
     var name: String
-    var priority: Priority
+    @Transient var priority: Priority { //es una propiedad transiente, no se almacena en la base de datos, sino que se almacena el atribute asociado
+        get {
+            return Priority(rawValue: Int(self.priorityNum)) ?? .medium
+        } set {
+            self.priorityNum = Int(newValue.rawValue)
+        }
+    }
+    @Attribute(originalName: "priority") var priorityNum: Priority.RawValue
+    
     var isCompleted: Bool
     
     init(name: String = "", priority: Priority = .medium, completed: Bool = false) {
         self.id = UUID()
         self.name = name
-        self.priority = priority
         self.isCompleted = completed
+        self.priorityNum = priority.rawValue
+        self.priority = priority
     }
 }

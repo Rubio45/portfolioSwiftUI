@@ -10,11 +10,12 @@ import SwiftUI
 struct NewTaskView: View {
     
     @Binding var isShow: Bool
-    @Binding var task: [Task]
     
     @State var newTaskTitle: String
     @State var newTaskPriority: Priority
     @State var isEditing = false
+    
+    @Environment(\.modelContext) private var modelContext
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -87,11 +88,11 @@ struct NewTaskView: View {
     
     private func addNewTask(title: String, priority: Priority, isCompleted: Bool = false) {
         let newTask = Task(name: title, priority: priority, completed: isCompleted)
-        self.task.append(newTask)
+        modelContext.insert(newTask)
     }
 }
 #Preview {
-    NewTaskView(isShow: .constant(true), task: .constant([]), newTaskTitle: "", newTaskPriority: .medium)
+    NewTaskView(isShow: .constant(true), newTaskTitle: "", newTaskPriority: .medium)
 }
 
 
