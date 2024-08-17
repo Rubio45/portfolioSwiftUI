@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1261BF682C71110E00046A39 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1261BF672C71110E00046A39 /* SearchBarView.swift */; };
 		1262F0912C6F195500FE2EBD /* ToDOAPP_IOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1262F0902C6F195500FE2EBD /* ToDOAPP_IOSApp.swift */; };
 		1262F0932C6F195500FE2EBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1262F0922C6F195500FE2EBD /* ContentView.swift */; };
 		1262F0972C6F195700FE2EBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1262F0962C6F195700FE2EBD /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1261BF672C71110E00046A39 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		1262F08D2C6F195500FE2EBD /* ToDOAPP IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDOAPP IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1262F0902C6F195500FE2EBD /* ToDOAPP_IOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDOAPP_IOSApp.swift; sourceTree = "<group>"; };
 		1262F0922C6F195500FE2EBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				1262F0922C6F195500FE2EBD /* ContentView.swift */,
 				1262F0A52C7073B600FE2EBD /* Prueba.swift */,
 				1262F0A32C6F238E00FE2EBD /* NewTaskView.swift */,
+				1261BF672C71110E00046A39 /* SearchBarView.swift */,
 				1262F0A02C6F19A900FE2EBD /* model */,
 				1262F0962C6F195700FE2EBD /* Assets.xcassets */,
 				1262F0982C6F195700FE2EBD /* Preview Content */,
@@ -158,6 +161,7 @@
 				1262F0A42C6F238E00FE2EBD /* NewTaskView.swift in Sources */,
 				1262F0A22C6F19BC00FE2EBD /* Task.swift in Sources */,
 				1262F0932C6F195500FE2EBD /* ContentView.swift in Sources */,
+				1261BF682C71110E00046A39 /* SearchBarView.swift in Sources */,
 				1262F0912C6F195500FE2EBD /* ToDOAPP_IOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

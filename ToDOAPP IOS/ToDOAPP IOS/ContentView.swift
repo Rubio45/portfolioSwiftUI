@@ -45,7 +45,7 @@ struct ContentView: View {
                     }
                 }.padding()
                 HStack {
-                    SearchView(searchText: self.$searchText)
+                    SearchBarView(searchText: $searchText)
                     Button {
                         withAnimation {
                             isShowingFilterView.toggle()
