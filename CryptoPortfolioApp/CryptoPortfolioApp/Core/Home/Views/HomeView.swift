@@ -21,6 +21,10 @@ struct HomeView: View {
             VStack {
                 HomeHeaderView(showPortfolio: $showPortfolio)
                 
+                HomeStatsView(showPortfolio: $showPortfolio)
+                        .transition(.move(edge: showPortfolio ? .trailing : .leading))
+                
+                
                 SearchBarView(searchText: $vm.searchText)
                 
                 TitleCoinBar(showHolding: $showPortfolio)
