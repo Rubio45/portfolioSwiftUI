@@ -17,7 +17,7 @@ struct HomeStatsView: View {
         HStack {
             ForEach($vm.statistics) { stat in //fix
                 StatiticsView(stat: stat.wrappedValue)
-            }
+            }.frame(width: UIScreen.main.bounds.width / 3)
         }
             .padding(.horizontal)
     }

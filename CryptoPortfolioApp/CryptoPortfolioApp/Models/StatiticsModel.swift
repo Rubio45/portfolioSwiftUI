@@ -19,5 +19,3 @@ struct StatiticsModel: Identifiable {
         self.percentageChange = percentageChange
     }
 }
-
-let newModel = StatiticsModel(title: "MarketCap", value: "21902130")

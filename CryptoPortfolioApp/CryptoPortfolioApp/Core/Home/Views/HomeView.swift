@@ -22,32 +22,34 @@ struct HomeView: View {
                 HomeHeaderView(showPortfolio: $showPortfolio)
                 
                 HomeStatsView(showPortfolio: $showPortfolio)
-                        .transition(.move(edge: showPortfolio ? .trailing : .leading))
+                    .transition(.move(edge: showPortfolio ? .leading : .trailing))
                 
                 
                 SearchBarView(searchText: $vm.searchText)
                 
-                TitleCoinBar(showHolding: $showPortfolio)
-                if !showPortfolio {
-                    List {
-                        ForEach(vm.allCoins) { coin in
-                            CoinRowView(coin: coin, showHolding: false)
-                                .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
-                        }
-                    }.listStyle(PlainListStyle())
-                        .transition(.move(edge: .leading))
-                }
-                
-                if showPortfolio {
-                    List {
-                        ForEach(vm.allCoins) { coin in
-                            CoinRowView(coin: coin, showHolding: true)
-                                .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
-                        }
-                    }.listStyle(PlainListStyle())
-                        .transition(.move(edge: .trailing))
-                }
-                Spacer()
+                VStack {
+                    TitleCoinBar(showHolding: $showPortfolio)
+                    if !showPortfolio {
+                        List {
+                            ForEach(vm.allCoins) { coin in
+                                CoinRowView(coin: coin, showHolding: false)
+                                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                            }
+                        }.listStyle(PlainListStyle())
+                            .transition(.move(edge: .leading))
+                    }
+                    
+                    if showPortfolio {
+                        List {
+                            ForEach(vm.allCoins) { coin in
+                                CoinRowView(coin: coin, showHolding: true)
+                                    .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                            }
+                        }.listStyle(PlainListStyle())
+                            .transition(.move(edge: .trailing))
+                    }
+                    Spacer()
+                }.frame(maxWidth: UIScreen.main.bounds.width)
             }
         }
     }

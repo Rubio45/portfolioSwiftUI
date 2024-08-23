@@ -32,4 +32,20 @@ extension Double {
         let number = NSNumber(value: self)
         return currentFormatter6.string(from: number) ?? ""
     }
+    
+    func formattedInBnOrTrn() -> String {
+            let trillion = 1_000_000_000_000.0
+            let billion = 1_000_000_000.0
+
+            if self >= trillion {
+                let formattedNumber = self / trillion
+                return String(format: "$%.2f Trn", formattedNumber)
+            } else if self >= billion {
+                let formattedNumber = self / billion
+                return String(format: "$%.2f Bn", formattedNumber)
+            } else {
+                return String(format: "%.2f", self)
+            }
+        }
+    
 }
