@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @State private var showPortfolio: Bool = false
+    @EnvironmentObject private var vm: HomeViewModel
     
     var body: some View {
         ZStack {
@@ -19,10 +20,29 @@ struct HomeView: View {
             // contenido
             VStack {
                 HomeHeaderView(showPortfolio: $showPortfolio)
-                List {
-                    CoinRowView(coin: bitcoin)
-                        .padding(.horizontal)
-                }.listStyle(PlainListStyle())
+                
+                SearchBarView(searchText: $vm.searchText)
+                
+                TitleCoinBar(showHolding: $showPortfolio)
+                if !showPortfolio {
+                    List {
+                        ForEach(vm.allCoins) { coin in
+                            CoinRowView(coin: coin, showHolding: false)
+                                .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                        }
+                    }.listStyle(PlainListStyle())
+                        .transition(.move(edge: .leading))
+                }
+                
+                if showPortfolio {
+                    List {
+                        ForEach(vm.allCoins) { coin in
+                            CoinRowView(coin: coin, showHolding: true)
+                                .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+                        }
+                    }.listStyle(PlainListStyle())
+                        .transition(.move(edge: .trailing))
+                }
                 Spacer()
             }
         }
@@ -34,6 +54,8 @@ struct HomeView: View {
         HomeView()
             .navigationBarHidden(true)
     }
+    .environmentObject(HomeViewModel())
+    .preferredColorScheme(.dark)
 }
 
 struct HomeHeaderView: View {
@@ -50,7 +72,7 @@ struct HomeHeaderView: View {
             
             Spacer()
             Text(showPortfolio ? "Portfolio" : "Live Prices")
-                .font(.headline)
+                .font(.title3)
                 .fontWeight(.heavy)
                 .foregroundColor(Color.theme.accent)
                 .animation(.none)
@@ -65,5 +87,38 @@ struct HomeHeaderView: View {
                 }
         }
         .padding(.horizontal)
+    }
+}
+
+struct TitleCoinBar: View {
+    
+    @Binding var showHolding: Bool
+    
+    var body: some View {
+        HStack {
+            Text("Coin")
+                .font(.caption)
+                .foregroundColor(Color.theme.secondaryText)
+                .frame(width: UIScreen.main.bounds.width / 3, alignment: .leading)
+            Spacer()
+            HStack (spacing: 4) {
+                    Text("Holdings")
+                        .font(.caption)
+                        .foregroundColor(Color.theme.secondaryText)
+                    Image(systemName: "chevron.down")
+                        .font(.caption)
+                        .foregroundColor(Color.theme.secondaryText)
+                }
+                .opacity(showHolding ? 1 : 0)
+            VStack (alignment: .trailing) {
+                HStack (spacing: 4) {
+                    Text("Price")
+                        .font(.caption)
+                        .foregroundColor(Color.theme.secondaryText)
+                    Image(systemName: "arrow.counterclockwise")
+                        .font(.caption)
+                }
+            }.frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+        }.padding(.horizontal)
     }
 }

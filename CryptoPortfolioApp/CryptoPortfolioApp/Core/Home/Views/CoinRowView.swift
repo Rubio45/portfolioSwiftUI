@@ -11,7 +11,7 @@ struct CoinRowView: View {
     
     let coin: Coin
     
-    var showHolding: Bool = true
+    var showHolding: Bool
     
     var body: some View {
         HStack(spacing: 0) {
@@ -52,15 +52,18 @@ struct CoinRowView: View {
                 Text(String(format: "%.2f", coin.priceChangePercentage24H ?? 0) + "%")
                     .bold()
                     .foregroundStyle(coin.priceChangePercentage24H ?? 0 > 0 ? Color.theme.green : Color.theme.red)
-            }
-        }.frame(width: UIScreen.main.bounds.width, alignment: .leading)
+            }.frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+        }
             
     }
 }
 
 #Preview (traits: .sizeThatFitsLayout){
-    CoinRowView(coin: bitcoin)
-        .preferredColorScheme(.dark)
+    Group {
+        CoinRowView(coin: bitcoin, showHolding: false)
+            .preferredColorScheme(.dark)
+        
+    }
         
 }
 
