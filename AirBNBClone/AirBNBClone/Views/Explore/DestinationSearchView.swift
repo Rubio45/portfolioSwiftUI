@@ -19,6 +19,10 @@ struct DestinationSearchView: View {
     @State private var destination: String = ""
     @State private var selectedOption: DestinationSearchViewType = .location
     
+    @State private var fromDate: Date = Date()
+    @State private var toDate: Date = Date()
+    @State private var guests: Int = 0
+    
     var body: some View {
         VStack (spacing: 16) {
             HStack {
@@ -28,14 +32,9 @@ struct DestinationSearchView: View {
                     }
                     print("close button pressed")
                 } label: {
-                    Image(systemName: "xmark")
-                        .imageScale(.medium)
+                    Image(systemName: "xmark.circle")
+                        .imageScale(.large)
                         .foregroundStyle(.black)
-                        .overlay {
-                            Circle()
-                                .stroke(Color(.systemGray4), lineWidth: 2)
-                                .frame(width: 30, height: 30)
-                        }
                 }
                 Spacer()
                 
@@ -44,14 +43,14 @@ struct DestinationSearchView: View {
                         destination = ""
                     } label: {
                         Text("Clear")
-                            .font(.footnote)
+                            .font(.subheadline)
                             .fontWeight(.semibold)
                             .foregroundStyle(.black)
                     }
                 }
             }
-            .padding(.horizontal)
-            .padding(.bottom, 8)
+            .padding()
+            
             // where to
             VStack (alignment: .leading) {
                 if selectedOption == .location {
@@ -77,12 +76,8 @@ struct DestinationSearchView: View {
                     FoldSearchView(title: "Where", description: "Add destination")
                 }
             }
-            .padding()
+            .modifier(FoldSearchViewModifier())
             .frame(height: selectedOption == .location ? 120 : 64 )
-            .background(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .padding()
-            .shadow(radius: 10)
             .onTapGesture {
                 withAnimation(.easeInOut) {
                     selectedOption = .location
@@ -93,17 +88,27 @@ struct DestinationSearchView: View {
             // date selection view
             VStack (alignment: .leading) {
                 if selectedOption == .dates {
+                    Text("When's your trip?")
+                        .font(.title2)
+                        .fontWeight(.semibold)
                     
+                    
+                    VStack {
+                        DatePicker("From", selection: $fromDate, displayedComponents: .date)
+                        
+                        Divider()
+                        
+                        DatePicker("To", selection: $toDate, displayedComponents: .date)
+                    }
+                    .foregroundStyle(.gray)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
                 } else {
                     FoldSearchView(title: "When", description: "Add dates")
                 }
             }
-            .padding()
-            .frame(height: selectedOption == .dates ? 120 : 64 )
-            .background(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .padding()
-            .shadow(radius: 10)
+            .modifier(FoldSearchViewModifier())
+            .frame(height: selectedOption == .dates ? 180 : 64 )
             .onTapGesture {
                 withAnimation(.easeInOut) {
                     selectedOption = .dates
@@ -112,17 +117,24 @@ struct DestinationSearchView: View {
             // num guest view
             VStack (alignment: .leading) {
                 if selectedOption == .guests {
+                    Text("Who's coming?")
+                        .font(.title2)
+                        .fontWeight(.semibold)
                     
+                    Stepper {
+                        Text("\(guests) guests")
+                    } onIncrement: {
+                        guests += 1
+                    } onDecrement: {
+                        guard guests > 0 else { return }
+                        guests -= 1
+                    }
                 } else {
                     FoldSearchView(title: "Who", description: "Add guests")
                 }
             }
-            .padding()
+            .modifier(FoldSearchViewModifier())
             .frame(height: selectedOption == .guests ? 120 : 64 )
-            .background(.white)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .padding()
-            .shadow(radius: 10)
             .onTapGesture {
                 withAnimation(.easeInOut) {
                     selectedOption = .guests
@@ -137,3 +149,14 @@ struct DestinationSearchView: View {
     DestinationSearchView(isShowed: .constant(true))
 }
 
+// modificador personalizado
+struct FoldSearchViewModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding()
+            .background(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding()
+            .shadow(radius: 10)
+    }
+}
