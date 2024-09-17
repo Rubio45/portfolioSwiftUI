@@ -1,8 +1,90 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@, %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@"
+          }
+        }
+      }
+    },
+    "Already have an account?" : {
+
+    },
+    "Are you traveling solo or bringing along some company?" : {
+
+    },
+    "Change the password with link in the email" : {
+
+    },
+    "Check your email" : {
+
+    },
+    "Create Account" : {
+
+    },
+    "Create New Password" : {
+
+    },
+    "Customize your Experience" : {
+
+    },
+    "Don't have an account yet?" : {
+
+    },
+    "Enter the email address associated with your account" : {
+
+    },
+    "Forgot password?" : {
+
+    },
+    "Go Back" : {
+
+    },
     "Key" : {
       "extractionState" : "manual"
+    },
+    "Log in" : {
+
+    },
+    "Log In" : {
+
+    },
+    "No card selected" : {
+
+    },
+    "Reset Password" : {
+
+    },
+    "Select Gender" : {
+
+    },
+    "Select Nationality" : {
+
+    },
+    "Sign up" : {
+
+    },
+    "Sign Up" : {
+
+    },
+    "Skip" : {
+
+    },
+    "Start Planning" : {
+
+    },
+    "Submit" : {
+
+    },
+    "What's your travel style?" : {
+
+    },
+    "Your new password must be different from previous used passwords" : {
+
     }
   },
   "version" : "1.0"
