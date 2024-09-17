@@ -19,6 +19,7 @@
 		1215F5232C9938F10045AADA /* ListingFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215F5222C9938F10045AADA /* ListingFeaturesView.swift */; };
 		1215F5252C993E410045AADA /* ListingOfferingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215F5242C993E410045AADA /* ListingOfferingView.swift */; };
 		1215F5272C9948C30045AADA /* DestinationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215F5262C9948C30045AADA /* DestinationSearchView.swift */; };
+		1215F5292C994FD20045AADA /* FoldSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215F5282C994FD20045AADA /* FoldSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		1215F5222C9938F10045AADA /* ListingFeaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingFeaturesView.swift; sourceTree = "<group>"; };
 		1215F5242C993E410045AADA /* ListingOfferingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingOfferingView.swift; sourceTree = "<group>"; };
 		1215F5262C9948C30045AADA /* DestinationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSearchView.swift; sourceTree = "<group>"; };
+		1215F5282C994FD20045AADA /* FoldSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				1215F5202C99336F0045AADA /* ListingImageCarouselView.swift */,
 				1215F5222C9938F10045AADA /* ListingFeaturesView.swift */,
 				1215F5242C993E410045AADA /* ListingOfferingView.swift */,
+				1215F5282C994FD20045AADA /* FoldSearchView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				1215F5212C99336F0045AADA /* ListingImageCarouselView.swift in Sources */,
 				1215F5002C9903760045AADA /* ContentView.swift in Sources */,
 				1215F51C2C990D320045AADA /* SearchAndFilterbar.swift in Sources */,
+				1215F5292C994FD20045AADA /* FoldSearchView.swift in Sources */,
 				1215F51A2C9907EB0045AADA /* ListingItemView.swift in Sources */,
 				1215F5272C9948C30045AADA /* DestinationSearchView.swift in Sources */,
 				1215F5182C9905E80045AADA /* ExploreView.swift in Sources */,
