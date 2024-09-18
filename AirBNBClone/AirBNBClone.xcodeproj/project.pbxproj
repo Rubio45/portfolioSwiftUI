@@ -26,6 +26,9 @@
 		1215F5322C9A80FA0045AADA /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215F5312C9A80FA0045AADA /* LoginButtonView.swift */; };
 		1215F5342C9A81DB0045AADA /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215F5332C9A81DB0045AADA /* MainTabView.swift */; };
 		1215F5382C9A84070045AADA /* ListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215F5372C9A84070045AADA /* ListingModel.swift */; };
+		1215F53A2C9AA17D0045AADA /* DeveloperPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215F5392C9AA17D0045AADA /* DeveloperPreview.swift */; };
+		1215F53F2C9AA25F0045AADA /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215F53E2C9AA25F0045AADA /* ExploreViewModel.swift */; };
+		1215F5412C9AA2A60045AADA /* ExploreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215F5402C9AA2A60045AADA /* ExploreService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,9 @@
 		1215F5312C9A80FA0045AADA /* LoginButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
 		1215F5332C9A81DB0045AADA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		1215F5372C9A84070045AADA /* ListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingModel.swift; sourceTree = "<group>"; };
+		1215F5392C9AA17D0045AADA /* DeveloperPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperPreview.swift; sourceTree = "<group>"; };
+		1215F53E2C9AA25F0045AADA /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
+		1215F5402C9AA2A60045AADA /* ExploreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,7 @@
 		1215F50D2C9903B20045AADA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1215F5392C9AA17D0045AADA /* DeveloperPreview.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -148,8 +155,9 @@
 		1215F5102C99053B0045AADA /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				1215F5172C9905E80045AADA /* ExploreView.swift */,
-				1215F5262C9948C30045AADA /* DestinationSearchView.swift */,
+				1215F53D2C9AA2480045AADA /* ViewModel */,
+				1215F53C2C9AA2440045AADA /* View */,
+				1215F53B2C9AA2380045AADA /* Service */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -230,6 +238,31 @@
 				1215F5192C9907EB0045AADA /* ListingItemView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1215F53B2C9AA2380045AADA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1215F5402C9AA2A60045AADA /* ExploreService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		1215F53C2C9AA2440045AADA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1215F5262C9948C30045AADA /* DestinationSearchView.swift */,
+				1215F5172C9905E80045AADA /* ExploreView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1215F53D2C9AA2480045AADA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1215F53E2C9AA25F0045AADA /* ExploreViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,8 +350,11 @@
 				1215F52D2C9A6CC60045AADA /* ProfileOptionRowView.swift in Sources */,
 				1215F5182C9905E80045AADA /* ExploreView.swift in Sources */,
 				1215F51E2C99327C0045AADA /* ListingDetailView.swift in Sources */,
+				1215F5412C9AA2A60045AADA /* ExploreService.swift in Sources */,
 				1215F5252C993E410045AADA /* ListingOfferingView.swift in Sources */,
 				1215F4FE2C9903760045AADA /* AirBNBCloneApp.swift in Sources */,
+				1215F53F2C9AA25F0045AADA /* ExploreViewModel.swift in Sources */,
+				1215F53A2C9AA17D0045AADA /* DeveloperPreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
