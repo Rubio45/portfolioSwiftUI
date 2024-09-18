@@ -144,6 +144,7 @@ struct ListingDetailView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }.padding()
         }
+        .toolbar(.hidden, for: .tabBar) // hide the tabBar on this screen
         .ignoresSafeArea()
         .padding(.bottom, 72)
         .overlay(alignment: .bottom) {

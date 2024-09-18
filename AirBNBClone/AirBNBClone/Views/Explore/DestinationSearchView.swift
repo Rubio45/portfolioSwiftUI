@@ -122,7 +122,7 @@ struct DestinationSearchView: View {
                         .fontWeight(.semibold)
                     
                     Stepper {
-                        Text("\(guests) guests")
+                        Text("\(guests) adults")
                     } onIncrement: {
                         guests += 1
                     } onDecrement: {
