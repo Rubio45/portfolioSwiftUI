@@ -20,6 +20,7 @@ class ExploreViewModel: ObservableObject {
     
     func fetchListings() async {
         do {
+            print("DEBUG: Fetching listings")
             self.listings = try await service.fetchListings()
         } catch {
             print("DEBUG: Failed to fetch listings")
