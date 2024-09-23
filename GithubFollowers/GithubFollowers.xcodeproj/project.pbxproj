@@ -14,7 +14,7 @@
 		123DD2112CA082F60031310D /* Exceptions for "GithubFollowers" folder in "GithubFollowers" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				App/Info.plist,
+				Info.plist,
 			);
 			target = 123DD1FE2CA082F50031310D /* GithubFollowers */;
 		};
