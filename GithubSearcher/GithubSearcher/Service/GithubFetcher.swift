@@ -8,8 +8,6 @@
 import SwiftUI
 
 class GithubFetcher {
-   // var user: GitHubUser?
-    // var followers: [GitHubFollower]?
 
     let username: String
     private var endpoint: String = "https://api.github.com/users/"
@@ -19,20 +17,6 @@ class GithubFetcher {
         endpoint += username
     }
 
-   /* func fetchUserAndFollowers() {
-        Task {
-            do {
-                self.user = try await getUser()
-                
-                if let user = self.user {
-                    self.followers = try await getFollowers(user: user)
-                }
-            } catch {
-                print("An error occurred: \(error)")
-            }
-        }
-    }
- */
     func getUser() async throws -> GitHubUser {
         guard let url = URL(string: self.endpoint) else {
             throw NetworkError.invalidURL
