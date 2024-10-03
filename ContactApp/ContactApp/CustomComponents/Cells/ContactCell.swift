@@ -17,7 +17,6 @@ class ContactCell: UITableViewCell {
     private let padding: CGFloat        = 5
     private let textPadding: CGFloat    = 10
     let divider                         = UIView()
-    let favoriteButton                  = UIButton()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +31,7 @@ class ContactCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    // MARK: Set Contact
     func setContact(contactModel: ContactModel) {
         setImage(image: contactModel.image)
         contactImage.tintColor  = .label
@@ -45,7 +44,7 @@ class ContactCell: UITableViewCell {
         }
         configureCell(contactCompanyExists: contactCompanyExists) */
      }
-    
+    // MARK: Set Image
     func setImage(image: Data?) {
         if let imageData = image {
             contactImage.image  = UIImage(data: imageData)
@@ -60,17 +59,14 @@ class ContactCell: UITableViewCell {
             super.layoutSubviews()
             contactImage.layer.cornerRadius = contactImage.bounds.height / 2
         }
-    
+    // MARK: CELL
     private func configureCell(contactCompanyExists: Bool = true) {
         addSubview(contactName)
         addSubview(contactCompany)
         addSubview(contactImage)
         addSubview(divider)
-        addSubview(favoriteButton)
         divider.backgroundColor = .systemGray4
-        
-        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        
+        // MARK: Contraints
         NSLayoutConstraint.activate([ // I am adding all the constraint at the same time because it is only 1 cell with 3 elements
             contactImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             contactImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
@@ -80,21 +76,16 @@ class ContactCell: UITableViewCell {
             contactName.leadingAnchor.constraint(equalTo: contactImage.trailingAnchor, constant: textPadding),
             contactName.centerYAnchor.constraint(equalTo: centerYAnchor, constant: contactCompanyExists ? -5 : 0),
             contactName.heightAnchor.constraint(equalToConstant: 18),
-            contactName.trailingAnchor.constraint(equalTo: favoriteButton.leadingAnchor, constant: -textPadding),
+            contactName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -textPadding),
             
             contactCompany.leadingAnchor.constraint(equalTo: contactName.leadingAnchor),
-            contactCompany.trailingAnchor.constraint(equalTo: favoriteButton.leadingAnchor, constant: -textPadding),
+            contactCompany.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -textPadding),
             contactCompany.topAnchor.constraint(equalTo: contactName.bottomAnchor, constant: 5),
             contactCompany.heightAnchor.constraint(equalToConstant: 12),
             
             divider.leadingAnchor.constraint(equalTo: leadingAnchor),
             divider.trailingAnchor.constraint(equalTo: trailingAnchor),
             divider.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            favoriteButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            favoriteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-            favoriteButton.widthAnchor.constraint(equalToConstant: 45),
-            favoriteButton.heightAnchor.constraint(equalToConstant: 45)
         ])
     }
 }
