@@ -9,9 +9,12 @@ import UIKit
 
 class FavoriteListVC: UIViewController {
 
+    let contactListVC = ContactListVC()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        contactListVC.contactList = contactListVC.contactList.filter({ $0.isFavorite })
+        view.backgroundColor      = .systemBackground
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
