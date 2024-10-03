@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class MainController {
     private let coreDataManager = CoreDataManager(modelName: "ContactApp")
@@ -27,7 +28,8 @@ final class MainController {
                      email: String = "",
                      lastName: String = "",
                      jobTitle: String = "",
-                     company: String = "") {
+                     company: String = "",
+                     binaryImage: UIImage?) {
         
         let newContact                  = ContactModel(context: coreDataManager.context)
         newContact.name                 = name
@@ -38,6 +40,10 @@ final class MainController {
         newContact.lastName             = lastName
         newContact.id                   = UUID()
         newContact.isFavorite           = false
+        
+        if let image = binaryImage, let imageData = image.jpegData(compressionQuality: 1.0) {
+            newContact.image = imageData
+        }
         
         coreDataManager.save()
     }

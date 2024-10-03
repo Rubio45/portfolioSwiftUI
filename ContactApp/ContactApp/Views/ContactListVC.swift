@@ -70,7 +70,7 @@ class ContactListVC: UIViewController {
     }
     
     @objc private func addContact() {
-        print("contact added")
+        // print("contact added")
         let addContact = AddContactViewController(controller: controller)
         addContact.onContactAdded = { [weak self] in
             self?.getData()
@@ -100,5 +100,19 @@ extension ContactListVC: UITableViewDelegate {
         if let contact = dataSource.itemIdentifier(for: indexPath) {
             print("contact: \(String(describing: contact.name))")
         }
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { action, view, completion in
+            if let contactToDelete = self.dataSource.itemIdentifier(for: indexPath) {
+                self.controller.deleteContact(contact: contactToDelete)
+                completion(true)
+                self.getData()
+            }
+        }
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+        return swipeActions
     }
 }

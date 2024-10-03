@@ -33,11 +33,26 @@ class ContactCell: UITableViewCell {
     }
     
     func setContact(contactModel: ContactModel) {
-        contactImage.image      = UIImage(systemName: "person.circle")
+        setImage(image: contactModel.image)
         contactImage.tintColor  = .label
         contactName.text        = "\(contactModel.name ?? "")  \(contactModel.lastName ?? "")"
         contactCompany.text     = contactModel.company ?? ""
      }
+    
+    func setImage(image: Data?) {
+        if let imageData = image {
+            contactImage.image  = UIImage(data: imageData)
+        } else {
+            contactImage.image  = UIImage(systemName: "person.circle")
+        }
+        contactImage.contentMode        = .scaleAspectFill
+        contactImage.clipsToBounds      = true
+    }
+    
+    override func layoutSubviews() {
+            super.layoutSubviews()
+            contactImage.layer.cornerRadius = contactImage.bounds.height / 2
+        }
     
     private func configureCell(contactCompanyExists: Bool = true) {
         addSubview(contactName)
@@ -50,8 +65,8 @@ class ContactCell: UITableViewCell {
             // I am adding all the constraint at the same time because it is only 1 cell with 3 elements
             contactImage.centerYAnchor.constraint(equalTo: centerYAnchor),
             contactImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            contactImage.heightAnchor.constraint(equalToConstant: 30),
-            contactImage.widthAnchor.constraint(equalToConstant: 30),
+            contactImage.heightAnchor.constraint(equalToConstant: 40),
+            contactImage.widthAnchor.constraint(equalToConstant: 40),
             
             contactName.leadingAnchor.constraint(equalTo: contactImage.trailingAnchor, constant: textPadding),
             contactName.centerYAnchor.constraint(equalTo: centerYAnchor, constant: contactCompanyExists ? -5 : 0),

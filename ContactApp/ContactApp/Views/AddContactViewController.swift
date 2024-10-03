@@ -31,6 +31,7 @@ class AddContactViewController: UIViewController {
    // MARK: ADD PHOTOS
     private let addPhotoButton  = ContactButton(frame: .zero, title: "Add Photo")
     private let takePhotoButton = ContactButton(frame: .zero, title: "Take Photo")
+    var imageToBinary: UIImage! = UIImage(systemName: "person.circle")
     let padding: CGFloat        = 20
     let heightItem: CGFloat     = 45
     
@@ -126,7 +127,7 @@ class AddContactViewController: UIViewController {
             basicInfoView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             basicInfoView.heightAnchor.constraint(equalToConstant: CGFloat(heightItem * 4))
         ])
-        
+        // adding all in once. 
         let itemList = [nameField, lastNameField, companyField, jobTitleField]
         for item in itemList {
             basicInfoView.addSubview(item)
@@ -181,6 +182,7 @@ class AddContactViewController: UIViewController {
         takePhotoButton.addTarget(self, action: #selector(takePhoto), for: .touchUpInside)
     }
     
+    // MARK: SaveContact
     @objc func saveContact() {
         guard let name = nameField.text, !name.isEmpty else {
             nameField.placeholder = "* Name is required"
@@ -194,16 +196,18 @@ class AddContactViewController: UIViewController {
                                email: emailField.text ?? "",
                                lastName: lastNameField.text ?? "",
                                jobTitle: jobTitleField.text ?? "",
-                               company: companyField.text ?? "")
+                               company: companyField.text ?? "",
+                               binaryImage: imageToBinary)
+        // I am calling a closure to update the UI. LifeCycle viewWillAppear doesn;t wokr. here
         onContactAdded?()
         dismiss(animated: true)
     }
-    
+    // MARK: Cancel
     @objc func cancel() {
-        print("Cancelado")
+        print("Cancel")
         dismiss(animated: true)
     }
-    
+    // MARK: Pick and take photo
     @objc func pickPhoto() {
         // set configuration
         var configuration               = PHPickerConfiguration()

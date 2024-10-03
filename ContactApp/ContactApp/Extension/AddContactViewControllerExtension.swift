@@ -17,9 +17,10 @@ extension AddContactViewController: PHPickerViewControllerDelegate {
         
         if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
             result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { // i am using the main thread to update the UI. Otherwise, I need to call a function. 
                     if let image = image as? UIImage {
                         self?.imageView.image = image
+                        self?.imageToBinary   = image
                     }
                 }
             }
@@ -30,7 +31,8 @@ extension AddContactViewController: PHPickerViewControllerDelegate {
 extension AddContactViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let originalImage = info[.originalImage] as? UIImage {
-            imageView.image = originalImage
+            imageView.image     = originalImage
+            self.imageToBinary  = originalImage
         }
         picker.dismiss(animated: true)
     }
