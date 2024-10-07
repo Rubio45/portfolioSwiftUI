@@ -9,10 +9,10 @@ import UIKit
 
 class UserInfoViewController: UIViewController {
 
-    let headerView = UIView()
+    let headerView          = UIView()
     var username: String!
-    let itemViewOne = UIView()
-    let itemViewTwo = UIView()
+    let itemViewOne         = UIView()
+    let itemViewTwo         = UIView()
     var itemViews: [UIView] = []
     
     override func viewDidLoad() {
