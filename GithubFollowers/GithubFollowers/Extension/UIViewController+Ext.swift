@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 fileprivate var containerView: UIView!
 // file private, es private but only allowed to access through the file.
@@ -19,6 +20,12 @@ extension UIViewController {
             alertVC.modalTransitionStyle    = .crossDissolve
             self.present(alertVC, animated: true)
         }
+    }
+    
+    func presentSafariVC(with url: URL) {
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        present(safariVC, animated: true)
     }
     
     func showLoadingView() {
