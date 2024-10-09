@@ -16,9 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         // Setting windows
-        window = UIWindow(windowScene: windowScene)
-        window?.windowScene = windowScene
-        window?.rootViewController = createTabBarController()
+        window                      = UIWindow(windowScene: windowScene)
+        window?.windowScene         = windowScene
+        window?.rootViewController  = GFTabBarController()
         window?.makeKeyAndVisible()
         
         configureNavigationBar()
@@ -26,27 +26,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func configureNavigationBar() {
         UINavigationBar.appearance().tintColor = .systemGreen
-    }
-    
-    func createSearchNavigationController() -> UINavigationController {
-        let searchVC            = SearchVCViewController()
-        searchVC.title          = "Search"
-        searchVC.tabBarItem     = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
-        return UINavigationController(rootViewController: searchVC)
-    }
-    
-    func createFavoritesNavigationController() -> UINavigationController {
-        let favoritesVC         = FavoritesListViewController()
-        favoritesVC.title       = "Favorites"
-        favoritesVC.tabBarItem  = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star"), tag: 1)
-        return UINavigationController(rootViewController: favoritesVC)
-    }
-    
-    func createTabBarController() -> UITabBarController {
-        let tabBarController                = UITabBarController()
-        UITabBar.appearance().tintColor     = .systemGreen // setting the navigations Controller
-        tabBarController.viewControllers    = [createSearchNavigationController(), createFavoritesNavigationController()]
-        return tabBarController
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
