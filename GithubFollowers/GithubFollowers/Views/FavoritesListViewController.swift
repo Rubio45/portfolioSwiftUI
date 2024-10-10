@@ -61,6 +61,7 @@ class FavoritesListViewController: UIViewController {
         
         tableView.delegate      = self
         tableView.dataSource    = self
+        tableView.removeExcessCells()
         tableView.register(GFFavoriteCell.self, forCellReuseIdentifier: GFFavoriteCell.reuseID)
     }
 }
@@ -89,16 +90,16 @@ extension FavoritesListViewController: UITableViewDelegate, UITableViewDataSourc
     // checking if they are deliting
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        
-        let favorite = favorites[indexPath.row]
-        favorites.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .fade)
-        
-        PersistenceManager.updateWith(favorite: favorite, actionType: .remove) { [weak self] error in
+
+        PersistenceManager.updateWith(favorite: favorites[indexPath.row], actionType: .remove) { [weak self] error in
             guard let self else { return }
             
             // si no hay un error, todo ok
-            guard let error else { return }
+            guard let error else {
+                favorites.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                return
+            }
             self.presentGFAlertOnMainThread(title: "Unable to Remove", message: error.rawValue, buttonTitle: "OK")
         }
     }
