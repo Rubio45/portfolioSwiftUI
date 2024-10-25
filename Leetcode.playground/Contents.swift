@@ -147,6 +147,9 @@ class Solution {
 
 
  */
+
+//TODO: - DONE
+/*
 import Foundation
 
 class Solution {
@@ -185,5 +188,37 @@ class Solution {
         }
         
         return number
+    }
+}*/
+
+/*
+ Write a function to find the longest common prefix string amongst an array of strings.
+
+ If there is no common prefix, return an empty string "".
+ 
+ Example 1:
+
+ Input: strs = ["flower","flow","flight"]
+ Output: "fl"
+ Example 2:
+
+ Input: strs = ["dog","racecar","car"]
+ Output: ""
+ Explanation: There is no common prefix among the input strings.
+
+ */
+
+class Solution {
+    func longestCommonPrefix(_ strs: [String]) -> String {
+        var index = 0
+        var dictCommorPrefix: [Int: String] = [:]
+        var smallNumber = 0
+        let firstString = strs[index]
+        
+        while index < strs.count {
+            
+        }
+        
+        return ""
     }
 }
