@@ -37,10 +37,13 @@ class DemoUITestMainViewControllerTests: XCTestCase {
     func testFirstAndLastTableViewCells() {
         let tableView = app.tables[ConstantsAccessibilityMainView.tableView]
         let firstCell = tableView.cells.element(boundBy: 0)
-        XCTAssertTrue(cells.exists, "La primera celda del TableView debe de existir.")
+        XCTAssertTrue(firstCell.exists, "La primera celda del TableView debe de existir.")
         tableView.swipeUp()
         let lastCell = tableView.cells.element(boundBy: 19)
+        XCTAssertTrue(lastCell.exists, "La ultima celda debe ser visible")
         
+        tableView.swipeDown()
+        XCTAssertTrue(firstCell.exists, "La primera celda debe ser visible")
     }
     
 }

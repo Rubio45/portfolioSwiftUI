@@ -19,10 +19,6 @@ class DemoUITestRegisterViewControllerTests: XCTestCase {
         loginRegisterButton.tap()
     }
     
-    override func tearDownWithError() throws {
-        
-    }
-    
     func testRegisterButton() {
         let registerButton = app.buttons[ConstantsAccessibilityRegisterView.registerButton]
         XCTAssertTrue(registerButton.exists, "El boton debe de existir en la RegisterView")
@@ -42,7 +38,7 @@ class DemoUITestRegisterViewControllerTests: XCTestCase {
         XCTAssertTrue(phoneNumberTextField.exists, "El campo debe de existir")
         let string = "189213"
         phoneNumberTextField.tap()
-        phoneNumberTextField.typeText(string)
+        phoneNumberTextField.typeText("189213")
         XCTAssertEqual(phoneNumberTextField.value as! String, string, "El texto no es el correcto ")
     }
     
@@ -60,7 +56,7 @@ class DemoUITestRegisterViewControllerTests: XCTestCase {
         XCTAssertTrue(passwordTextField.exists, "El campo debe de existir")
         let string = "Alex-20210212"
         passwordTextField.tap()
-        passwordTextField.typeText(string)
+        passwordTextField.typeText("Alex-20210212")
         XCTAssertEqual(passwordTextField.value as! String, string, "El texto no es el correcto")
     }
     
