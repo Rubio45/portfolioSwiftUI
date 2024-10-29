@@ -30,6 +30,7 @@ class RegisterViewController: UIViewController {
 
         view.backgroundColor = .systemBackground
         configure()
+        setAccesibilityIdentifier()
     }
     
     func configure() {
@@ -62,6 +63,15 @@ class RegisterViewController: UIViewController {
         ])
     }
     
+    private func setAccesibilityIdentifier() {
+        titleLabel.accessibilityIdentifier = ConstantsAccessibilityRegisterView.titleLabel
+        nameTextField.accessibilityIdentifier = ConstantsAccessibilityRegisterView.nameTextField
+        usernameTextField.accessibilityIdentifier = ConstantsAccessibilityRegisterView.usernameTextField
+        phoneTextField.accessibilityIdentifier = ConstantsAccessibilityRegisterView.phoneNumberTextField
+        passwordTextField.accessibilityIdentifier = ConstantsAccessibilityRegisterView.passwordTextField
+        repeatPasswordTextField.accessibilityIdentifier = ConstantsAccessibilityRegisterView.repeatPasswordTextField
+        registerButton.accessibilityIdentifier = ConstantsAccessibilityRegisterView.registerButton
+    }
 
     @objc func cancelTapped() {
         navigationController?.popViewController(animated: true)

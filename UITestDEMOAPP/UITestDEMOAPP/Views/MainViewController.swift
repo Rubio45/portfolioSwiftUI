@@ -34,6 +34,7 @@ class MainViewController: UIViewController {
         view.backgroundColor = .systemBackground
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTapped))
         configure()
+        setAccessibilityIdentifiers()
     }
     
     override func viewDidLayoutSubviews() {
@@ -64,6 +65,12 @@ class MainViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    func setAccessibilityIdentifiers() {
+        titleLabel.accessibilityIdentifier = ConstantsAccessibilityMainView.titleLabel
+        userImageView.accessibilityIdentifier = ConstantsAccessibilityMainView.imageView
+        tableView.accessibilityIdentifier = ConstantsAccessibilityMainView.tableView
     }
 
     @objc func cancelTapped() {

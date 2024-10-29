@@ -40,14 +40,14 @@
 		12E6142A2CCDA2E300F6B5D7 /* Exceptions for "UITestDEMOAPP" folder in "UITestDEMOAPPTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Constants.swift,
+				Constants/Constants.swift,
 			);
 			target = 128E713B2CCD841A00CF3FF0 /* UITestDEMOAPPTests */;
 		};
 		12E6142C2CCDA30C00F6B5D7 /* Exceptions for "UITestDEMOAPP" folder in "UITestDEMOAPPUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Constants.swift,
+				Constants/Constants.swift,
 			);
 			target = 128E71452CCD841A00CF3FF0 /* UITestDEMOAPPUITests */;
 		};

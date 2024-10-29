@@ -36,9 +36,9 @@ class LoginViewController: UIViewController {
     }()
     let titleLabel = TitleLabel(text: "Login")
     let passwordLabel = BasicLabel(text: "Password")
-    let passwordTextField = BasicTextField(placeholder: "", secureTextFieldEntry: true)
+    let passwordTextField = BasicTextField(placeholder: "Enter the password...", secureTextFieldEntry: true)
     let emailLabel = BasicLabel(text: "Email")
-    let emailTextField = BasicTextField(placeholder: "", secureTextFieldEntry: false)
+    let emailTextField = BasicTextField(placeholder: "Enter the username...", secureTextFieldEntry: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
